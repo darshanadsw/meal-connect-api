@@ -23,10 +23,16 @@ class CustomerRepositoryTest {
     @Test
     public void test_find_customer() {
 
+        Customer customer = Customer.builder()
+                .firstName("Darshana")
+                .lastName("Welikala").build();
+
+        entityManager.persistAndFlush(customer);
+
         Iterable<Customer> customers = customerRepository.findAll();
 
         assertTrue(customers.iterator().hasNext());
-        assertEquals(8,StreamSupport.stream(customers.spliterator(),false).count());
+        assertEquals(1,StreamSupport.stream(customers.spliterator(),false).count());
 
     }
 

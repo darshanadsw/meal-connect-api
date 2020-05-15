@@ -28,7 +28,7 @@ public class Customer {
     private String lastName;
 
     @Builder.Default
-    @OneToMany(orphanRemoval = true, cascade = CascadeType.REMOVE)
+    @OneToMany(orphanRemoval = true, cascade = CascadeType.REMOVE,mappedBy = "customer")
     private Set<Order> orders = new HashSet<>();
 
 }
